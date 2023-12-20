@@ -40,20 +40,14 @@ function move(element) {
     document.addEventListener("keydown", function (e) {
       if (e.repeat || pressedKeys.includes(e.key)) return;
       pressedKeys.push(e.key);
-      // Invokes the updateDirection function to determine direction of keys pressed.
-      updateDirection();
+      updateDirection(); // Invokes the updateDirection function to determine direction of keys pressed.
     });
 
     document.addEventListener("keyup", function (e) {
-      // Finds the index of the released key in the array and stores it in the variable named index. If the released key is not in the array,
-      // it will return the value -1.
-      let index = pressedKeys.indexOf(e.key);
-      // Below logic checks if the released key is in the array by checking index.
-      if (index !== -1) {
-        // Removes the released key from the array
-        pressedKeys.splice(index, 1);
-        // Invokes the updateDirection function to determine direction of keys still pressed
-        updateDirection();
+      let index = pressedKeys.indexOf(e.key); // Finds the index of the released key in the array and stores it in the variable named index. If the released key is not in the array, it will return the value -1.
+      if (index !== -1) { // logic checks if the released key is in the array by checking index.
+        pressedKeys.splice(index, 1); // Removes the released key from the array
+        updateDirection();  // Invokes the updateDirection function to determine direction of keys still pressed
       }
     });
 
